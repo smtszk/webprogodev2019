@@ -1,6 +1,6 @@
 ﻿@model webprogodev2019.Models.ViewModel
 @{
-    ViewData["Title"] = "Ana Sayfa";
+    ViewData["Title"] = "Giriş Sayfası";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,32 +14,22 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Haberler</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">User Ekle</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Hakkımda</a>
-                    </li>
-                    <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="mainPageEn();">EN</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Çıkış</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Masthead -->
-    <header style="background-image: url('https://images3.alphacoders.com/844/thumb-1920-844254.jpg');height:624px; background-size: cover;" class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <h1 class="masthead-heading text-uppercase mb-0">Araba Haberleri</h1>
-        </div>
-    </header>
-
     <!-- Portfolio Section -->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
 
             <!-- Portfolio Section Heading -->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Haberler</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Admin Sayfası</h2>
 
             <!-- Icon Divider -->
             <div class="divider-custom">
@@ -53,7 +43,7 @@
             <!-- Portfolio Grid Items -->
             <div class="row">
                 @for (int i = 0;i<Model.haberList.Count;i++){
-                    <div class="col-md-6 col-lg-4" onclick="showModal('@i')">
+                    <div class="col-md-6 col-lg-3" onclick="showModal('@i')">
                         <div class="portfolio-item mx-auto" data-toggle="modal">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white">
@@ -68,34 +58,7 @@
         </div>
     </section>
     
-    <!-- About Section -->
-    <section class="page-section bg-primary text-white mb-0" id="about">
-        <div class="container">
-
-            <!-- About Section Heading -->
-            <h2 class="page-section-heading text-center text-uppercase text-white">Hakkımda</h2>
-
-            <!-- Icon Divider -->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="divider-custom-line"></div>
-            </div>
-
-            <!-- About Section Content -->
-            <div class="row">
-                <div class="col-lg-4 ml-auto">
-                    <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4 mr-auto">
-                    <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
+   
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-to-top d-lg-none position-fixed ">
@@ -108,11 +71,6 @@
         function showModal(id) {
             var url = '@Url.Action("HaberSayfa", "Home", new { id = "__id__" })';
             window.location.href = url.replace('__id__', id);
-        }
-
-        function mainPageEn(id) {
-            var url = '@Url.Action("Index", "HomeEn")';
-               window.location.href = url;
         }
 
         function mainPage() {

@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using webprogodev2019.Areas.Identity.Data;
 using webprogodev2019.Models;
 
 namespace webprogodev2019
@@ -26,7 +28,8 @@ namespace webprogodev2019
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddDbContext<webprogodev2019Context>(options => options.UseSqlServer(Configuration.GetConnectionString("webprogodev2019Context")));
+            services.AddDbContext<webprogodev2019Context>(options => options.UseSqlServer(Configuration.GetConnectionString("WebProgOdev2019Connection")));
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<webprogodev2019IdentityDbContext>();
 
         }
 
@@ -52,6 +55,7 @@ namespace webprogodev2019
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

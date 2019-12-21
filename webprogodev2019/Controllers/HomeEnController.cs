@@ -11,13 +11,13 @@ using webprogodev2019.Models;
 
 namespace webprogodev2019.Controllers
 {
-    public class HomeEnController : Controller
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
         private readonly IConfiguration configuration;
 
-        public HomeEnController(IConfiguration config)
+        public HomeController(IConfiguration config)
         {
             configuration = config;
         }
@@ -33,8 +33,8 @@ namespace webprogodev2019.Controllers
                 while (reader.Read())
                 {
                     viewModel.haberList.Add(new Haber{
-                        haber_baslik=reader.GetString(4),
-                        haber_icerik=reader.GetString(5),
+                        haber_baslik=reader.GetString(1),
+                        haber_icerik=reader.GetString(2),
                         haber_resim=reader.GetString(3)
                     });
                 }
@@ -62,8 +62,8 @@ namespace webprogodev2019.Controllers
                 {
                     viewModel.haberList.Add(new Haber
                     {
-                        haber_baslik = reader.GetString(4),
-                        haber_icerik = reader.GetString(5),
+                        haber_baslik = reader.GetString(1),
+                        haber_icerik = reader.GetString(2),
                         haber_resim = reader.GetString(3)
                     });
                 }

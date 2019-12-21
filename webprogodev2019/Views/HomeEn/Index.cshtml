@@ -1,12 +1,12 @@
 ﻿@model webprogodev2019.Models.ViewModel
 @{
-    ViewData["Title"] = "Ana Sayfa";
+    ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" onclick="mainPage();">Araba Haberleri</a>
+            <a class="navbar-brand js-scroll-trigger" onclick="mainPage();">Car News</a>
             <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -14,13 +14,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Haberler</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">News</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Hakkımda</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="mainPageEn();">EN</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" onclick="mainPageTr();">TR</a>
                     </li>
                 </ul>
             </div>
@@ -30,7 +30,7 @@
     <!-- Masthead -->
     <header style="background-image: url('https://images3.alphacoders.com/844/thumb-1920-844254.jpg');height:624px; background-size: cover;" class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
-            <h1 class="masthead-heading text-uppercase mb-0">Araba Haberleri</h1>
+            <h1 class="masthead-heading text-uppercase mb-0">Car News</h1>
         </div>
     </header>
 
@@ -39,7 +39,7 @@
         <div class="container">
 
             <!-- Portfolio Section Heading -->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Haberler</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">News</h2>
 
             <!-- Icon Divider -->
             <div class="divider-custom">
@@ -73,7 +73,7 @@
         <div class="container">
 
             <!-- About Section Heading -->
-            <h2 class="page-section-heading text-center text-uppercase text-white">Hakkımda</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
 
             <!-- Icon Divider -->
             <div class="divider-custom divider-light">
@@ -106,17 +106,17 @@
 @section script{
     <script type="text/javascript">
         function showModal(id) {
-            var url = '@Url.Action("HaberSayfa", "Home", new { id = "__id__" })';
+            var url = '@Url.Action("HaberSayfa", "HomeEn", new { id = "__id__" })';
             window.location.href = url.replace('__id__', id);
         }
 
-        function mainPageEn(id) {
-            var url = '@Url.Action("Index", "HomeEn")';
+        function mainPageTr(id) {
+            var url = '@Url.Action("Index", "Home")';
                window.location.href = url;
         }
 
         function mainPage() {
-               var url = '@Url.Action("Index", "Home")';
+               var url = '@Url.Action("Index", "HomeEn")';
                window.location.href = url;
         }
     </script>
